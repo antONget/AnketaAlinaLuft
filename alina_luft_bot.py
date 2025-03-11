@@ -4,6 +4,7 @@ from aiogram.enums import ParseMode
 
 from config_data.config import Config, load_config
 from handlers import other_handlers, start_handlers, error
+from handlers import anketa_handlers
 from database.models import async_main
 from notify_admins import on_startup_notify
 
@@ -35,6 +36,7 @@ async def main():
     await on_startup_notify(bot=bot)
     dp.include_router(error.router)
     dp.include_router(start_handlers.router)
+    dp.include_router(anketa_handlers.router)
     dp.include_router(other_handlers.router)
 
     # Пропускаем накопившиеся update и запускаем polling

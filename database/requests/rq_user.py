@@ -19,7 +19,7 @@ class UserRole:
 """ ADD """
 
 
-async def add_user(data: dict) -> int | None:
+async def add_user(data: dict) -> None:
     """
     Добавление пользователя
     :param data:
@@ -31,10 +31,7 @@ async def add_user(data: dict) -> int | None:
         if not user:
             new_user = User(**data)
             session.add(new_user)
-            await session.flush()
-            id_ = new_user.id
             await session.commit()
-            return id_
 
 
 """ GET """

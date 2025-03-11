@@ -22,9 +22,9 @@ async def all_message(message: Message) -> None:
         logging.info(f'all_message message.photo')
         logging.info(message.photo[-1].file_id)
 
-    if message.sticker:
+    if message.video:
         logging.info(f'all_message message.sticker')
-        logging.info(message.sticker.file_id)
+        logging.info(message.video.file_id)
 
     if message.text == '/get_logfile':
         file_path = "py_log.log"
