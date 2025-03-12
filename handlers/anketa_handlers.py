@@ -84,7 +84,7 @@ async def process_select_answer(callback: CallbackQuery, state: FSMContext, bot:
         data = await state.get_data()
         answer = data['answer']
         answer.append(callback.data.split('_')[-2])
-        text = f'Пользователь <a href="tg://userid?id={callback.from_user.id}">{callback.from_user.username}</a> ' \
+        text = f'Пользователь <a href="tg://user?id={callback.from_user.id}">{callback.from_user.username}</a> ' \
                f'ответил на вопросы анкеты:\n\n'
         for k, v in dict_questions.items():
             text += f'<b>{k}. {v["message"]}</b>\n{answer[k-1]}\n\n'
